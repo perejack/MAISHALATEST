@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { Product } from "@/data/products";
-import { waLink } from "@/data/products";
+import { formatGaugePrices, waLink } from "@/data/products";
 
 interface ProductCardProps {
   product: Product;
@@ -30,8 +30,8 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur text-primary text-sm font-bold font-heading shadow-card">
-          {product.price}
+        <div className="absolute top-3 right-3 max-w-[85%] px-3 py-1.5 rounded-full bg-card/95 backdrop-blur text-primary text-xs font-bold font-heading shadow-card text-right leading-tight">
+          {formatGaugePrices(product.gaugePrices)}
         </div>
       </div>
 
@@ -53,7 +53,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
-            href={waLink(`Hello, I want to order ${product.name} (${product.price})`)}
+            href={waLink(`Hello, I want to order ${product.name} (${formatGaugePrices(product.gaugePrices)})`)}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}

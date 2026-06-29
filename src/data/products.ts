@@ -5,68 +5,96 @@ import colour113Profile from "@/assets/products/colour-11-3-profile.jpg";
 import aluZinc113 from "@/assets/products/alu-zinc-11-3.jpg";
 import maishaTile from "@/assets/products/maisha-tile.jpeg";
 
+export interface GaugePrice {
+  gauge: string;
+  price: number;
+}
+
 export interface Product {
   id: string;
   name: string;
   image: string;
-  price: string;
+  gaugePrices: GaugePrice[];
   description: string;
   category: "mabati";
   availableColors?: string;
   details?: string;
 }
 
+export const formatGaugePrice = (price: number) => `KSh ${price}/meter`;
+
+export const formatGaugePrices = (gaugePrices: GaugePrice[]) =>
+  gaugePrices.map(({ gauge, price }) => `${gauge}: ${formatGaugePrice(price)}`).join(" · ");
+
 export const products: Product[] = [
   {
-    id: "colour-box-profile",
-    name: "Maisha Colour Box Profile",
+    id: "versatile-mabati",
+    name: "Versatile Mabati",
+    image: premiumTile,
+    gaugePrices: [
+      { gauge: "28 gauge", price: 658 },
+      { gauge: "30 gauge", price: 590 },
+    ],
+    description: "A versatile roofing profile suitable for domestic, commercial, and industrial applications. Manufactured with high-quality mild steel and coated with UV-resistant paint for long-lasting performance.",
+    category: "mabati",
+    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE",
+  },
+  {
+    id: "corrugated-mabati",
+    name: "Corrugated Mabati",
+    image: colour113Profile,
+    gaugePrices: [
+      { gauge: "28 gauge", price: 500 },
+      { gauge: "30 gauge", price: 455 },
+    ],
+    description: "Classic corrugated roofing sheets widely used for roofing and cladding. Easy to handle and fix, with proven strength and cost effectiveness for homes, farmhouses, and industrial sheds.",
+    category: "mabati",
+    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE, MAROON",
+  },
+  {
+    id: "elegantile-mabati",
+    name: "Elegantile Mabati",
+    image: romanTile,
+    gaugePrices: [
+      { gauge: "28 gauge", price: 690 },
+      { gauge: "30 gauge", price: 676 },
+    ],
+    description: "A premium tile-profile roofing sheet that gives your roof the elegant look of clay tiles. Rigid, thermally efficient, and built for lasting beauty without the maintenance of traditional tiles.",
+    category: "mabati",
+    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
+  },
+  {
+    id: "box-profile",
+    name: "Box Profile",
     image: colourBoxProfile,
-    price: "KSh 470/meter",
-    description: "This wide span profile is for roofing and cladding. It is designed to provide the building and construction industry with an economical alternative to Invented Box Rib profiles. Widely used for domestic roofing, industrial roofing, farmhouses, airport hangars and factory sheds.",
+    gaugePrices: [
+      { gauge: "28 gauge", price: 560 },
+      { gauge: "30 gauge", price: 511 },
+    ],
+    description: "Wide-span box rib profile for roofing and cladding. An economical alternative to inverted box rib profiles, ideal for domestic roofing, industrial buildings, airport hangars, and factory sheds.",
     category: "mabati",
     availableColors: "GREEN, TILE RED, SKY BLUE, GRAPHITE, BRIGHT RED, BRICK RED, MAROON, SAFARICOM GREEN, REGAL RED",
   },
   {
-    id: "premium-tile",
-    name: "Maisha Premium Tile",
-    image: premiumTile,
-    price: "KSh 550/meter",
-    description: "With a great aesthetic value, it is currently one of the most popular and affordable ranges of Maisha. Manufactured with high standard Mild Steel and Coated with UV Resistant paint. Available in standard corrugation and suitable for versatile applications.",
-    category: "mabati",
-    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
-  },
-  {
-    id: "roman-tile",
-    name: "Maisha Roman Tile",
-    image: romanTile,
-    price: "KSh 550/meter",
-    description: "A prestigious and premium roofing profile. It gives the roof a look resembling 'Roman Clay Tiles.' For those who want the beauty of roof tiles without the leaks, maintenance and the added cost. The most rigid of profiles with high thermal efficiency.",
-    category: "mabati",
-    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
-  },
-  {
-    id: "colour-11-3-profile",
-    name: "Maisha Colour 11/3 Profile",
-    image: colour113Profile,
-    price: "KSh 520/meter",
-    description: "A widely used profile for roofing and cladding applications due to its ease of handling and fixing, relative strength, cost effectiveness and use in common design. Available in a diverse range of attractive colours with 11/3 corrugation style.",
-    category: "mabati",
-    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE, MAROON, SAFARICOM GREEN, REGAL RED",
-  },
-  {
-    id: "alu-zinc-11-3",
-    name: "Maisha Alu-Zinc Mabati 11/3",
+    id: "dumuzaz-unpainted",
+    name: "Dumuzaz Unpainted",
     image: aluZinc113,
-    price: "KSh 390/meter",
-    description: "A flat carbon steel sheet from Maisha Mabati Mills Ltd, setting the standard for dry and protected roofing. This product combines attractive aesthetics with proven resilience.",
+    gaugePrices: [
+      { gauge: "28 gauge", price: 396 },
+      { gauge: "30 gauge", price: 388 },
+    ],
+    description: "Unpainted alu-zinc roofing sheets offering durable, cost-effective protection. Ideal for projects where a natural metallic finish is preferred or where custom painting will be applied on site.",
     category: "mabati",
   },
   {
-    id: "maisha-tile",
-    name: "Maisha Tile",
+    id: "eurotile-mabati",
+    name: "Eurotile Mabati",
     image: maishaTile,
-    price: "KSh 390/meter",
-    description: "A popular alternative to conventional roofing tiles. Its appearance and light-weight make it suitable for any architectural concept. Maisha Tile has a vast range of applications.",
+    gaugePrices: [
+      { gauge: "28 gauge", price: 683 },
+      { gauge: "30 gauge", price: 678 },
+    ],
+    description: "Euro-style tile profile mabati combining modern aesthetics with lightweight durability. A popular alternative to conventional roofing tiles for residential and commercial projects.",
     category: "mabati",
     availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
   },

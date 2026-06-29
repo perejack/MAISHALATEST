@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Phone, ArrowLeft, MessageCircle, Check } from "lucide-react";
-import { products, PHONE_DISPLAY, PHONE_TEL, waLink } from "@/data/products";
+import { products, PHONE_DISPLAY, PHONE_TEL, formatGaugePrice, waLink } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -66,7 +66,13 @@ const ProductDetails = () => {
               <h1 className="font-heading text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-3xl md:text-4xl font-heading font-black text-primary mb-6">{product.price}</p>
+              <div className="mb-6 space-y-2">
+                {product.gaugePrices.map(({ gauge, price }) => (
+                  <p key={gauge} className="text-2xl md:text-3xl font-heading font-black text-primary">
+                    {gauge}: {formatGaugePrice(price)}
+                  </p>
+                ))}
+              </div>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">{product.description}</p>
 
               {colorList.length > 0 && (
@@ -95,7 +101,9 @@ const ProductDetails = () => {
 
               <div className="flex flex-col sm:flex-row gap-3 mt-4">
                 <a
-                  href={waLink(`Hello MAISHA MABATI FACTORY, I want to order ${product.name} (${product.price})`)}
+                  href={waLink(
+                    `Hello MAISHA MABATI FACTORY, I want to order ${product.name} (${product.gaugePrices.map(({ gauge, price }) => `${gauge}: ${formatGaugePrice(price)}`).join(", ")})`
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 py-4 rounded-lg bg-[hsl(142_70%_45%)] text-[hsl(0_0%_100%)] font-heading font-bold text-base hover:scale-[1.02] transition-transform"
