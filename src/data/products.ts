@@ -28,8 +28,8 @@ export const formatGaugePrices = (gaugePrices: GaugePrice[]) =>
 
 export const products: Product[] = [
   {
-    id: "romantile-mabati",
-    name: "Romantile Mabati",
+    id: "versatile-mabati",
+    name: "Versatile Mabati",
     image: romanTile,
     gaugePrices: [
       { gauge: "28 gauge", price: 690 },
@@ -52,8 +52,8 @@ export const products: Product[] = [
     availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE, MAROON",
   },
   {
-    id: "versatile-mabati",
-    name: "Versatile Mabati",
+    id: "romantile-mabati",
+    name: "Romantile Mabati",
     image: premiumTile,
     gaugePrices: [
       { gauge: "28 gauge", price: 658 },
