@@ -28,16 +28,16 @@ export const formatGaugePrices = (gaugePrices: GaugePrice[]) =>
 
 export const products: Product[] = [
   {
-    id: "versatile-mabati",
-    name: "Versatile Mabati",
-    image: premiumTile,
+    id: "romantile-mabati",
+    name: "Romantile Mabati",
+    image: romanTile,
     gaugePrices: [
-      { gauge: "28 gauge", price: 658 },
-      { gauge: "30 gauge", price: 590 },
+      { gauge: "28 gauge", price: 690 },
+      { gauge: "30 gauge", price: 676 },
     ],
-    description: "A versatile roofing profile suitable for domestic, commercial, and industrial applications. Manufactured with high-quality mild steel and coated with UV-resistant paint for long-lasting performance.",
+    description: "A premium tile-profile roofing sheet that gives your roof the elegant look of clay tiles. Rigid, thermally efficient, and built for lasting beauty without the maintenance of traditional tiles.",
     category: "mabati",
-    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE",
+    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
   },
   {
     id: "corrugated-mabati",
@@ -52,16 +52,16 @@ export const products: Product[] = [
     availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE, MAROON",
   },
   {
-    id: "elegantile-mabati",
-    name: "Elegantile Mabati",
-    image: romanTile,
+    id: "versatile-mabati",
+    name: "Versatile Mabati",
+    image: premiumTile,
     gaugePrices: [
-      { gauge: "28 gauge", price: 690 },
-      { gauge: "30 gauge", price: 676 },
+      { gauge: "28 gauge", price: 658 },
+      { gauge: "30 gauge", price: 590 },
     ],
-    description: "A premium tile-profile roofing sheet that gives your roof the elegant look of clay tiles. Rigid, thermally efficient, and built for lasting beauty without the maintenance of traditional tiles.",
+    description: "A versatile roofing profile suitable for domestic, commercial, and industrial applications. Manufactured with high-quality mild steel and coated with UV-resistant paint for long-lasting performance.",
     category: "mabati",
-    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED",
+    availableColors: "GREEN, TILE RED, GRAPHITE, BRIGHT RED, BRICK RED, SKY BLUE",
   },
   {
     id: "box-profile",
